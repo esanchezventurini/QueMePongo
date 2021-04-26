@@ -1,15 +1,17 @@
 package main;
 
-public class Tipo {
-	String nombre;
-	Categoria categoria;
+public enum Tipo {
 	
-	public Tipo(String nombre, Categoria categoria) {
-		this.nombre = nombre;
-		this.categoria = categoria;
-	}
-	
-	public boolean esDeCategoria(Categoria categoria) {
-		return this.categoria == categoria;
+	REMERA(Categoria.PARTE_SUPERIOR),
+	CAMISA(Categoria.PARTE_SUPERIOR), 
+	PANTALON(Categoria.PARTE_INFERIOR), 
+	FALDA(Categoria.PARTE_INFERIOR), 
+	ZAPATO(Categoria.CALZADO), 
+	ZAPATILLA(Categoria.CALZADO), 
+	ANTEOJOS(Categoria.ACCESORIO), 
+	CARTERA(Categoria.ACCESORIO);
+
+	Tipo(Categoria categoria) {
+		
 	}
 }

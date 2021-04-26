@@ -28,52 +28,45 @@ public class PrendaTest {
 		parteSuperior = Categoria.PARTE_SUPERIOR;
 		algodon = Material.ALGODON;
 		
-		remera = new Tipo("Remera", Categoria.PARTE_SUPERIOR);
-		zapatillas = new Tipo("Zapatillas", Categoria.CALZADO);
+		remera = Tipo.REMERA;
+		zapatillas = Tipo.ZAPATILLA;
 	}
 	
 	@Test
 	public void prendaSeCreaSinColorSecundarioTest() throws Exception{
-			unaPrenda = new Prenda(parteSuperior, remera, algodon, negro);
+			unaPrenda = new Prenda(remera, algodon, negro, null);
 	}
 	
 	@Test
 	public void prendaSeCreaConColorSecundarioTest() throws Exception{
-			unaPrenda = new Prenda(parteSuperior, remera, algodon, negro, azul);
+			unaPrenda = new Prenda(remera, algodon, negro, azul);
 	}
 	
 	@Test
 	public void prendaNoSeCreaSinColorPrimarioTest() {
 		assertThrows(Exception.class, ()->{
-			unaPrenda = new Prenda(parteSuperior, remera, algodon ,null, azul);
-		});
-	}
-	
-	@Test
-	public void prendaNoSeCreaSinCategoriaTest() {
-		assertThrows(Exception.class, ()->{
-			unaPrenda = new Prenda(null, remera, algodon ,negro, azul);
+			unaPrenda = new Prenda(remera, algodon ,null, azul);
 		});
 	}
 	
 	@Test
 	public void prendaNoSeCreaSinTipoTest() {
 		assertThrows(Exception.class, ()->{
-			unaPrenda = new Prenda(parteSuperior, null, algodon ,negro, azul);
+			unaPrenda = new Prenda(null, algodon ,negro, azul);
 		});
 	}
 	
 	@Test
 	public void prendaNoSeCreaSinMaterialTest() {
 		assertThrows(Exception.class, ()->{
-			unaPrenda = new Prenda(parteSuperior, remera, null ,negro, azul);
+			unaPrenda = new Prenda(remera, null ,negro, azul);
 		});
 	}
 	
 	@Test
 	public void categoriaNoCoincideConTipoTest() {
 		assertThrows(Exception.class, ()->{
-			unaPrenda = new Prenda(parteSuperior, zapatillas, algodon ,negro, azul);
+			unaPrenda = new Prenda(zapatillas, algodon ,negro, azul);
 		});
 	}
 }
