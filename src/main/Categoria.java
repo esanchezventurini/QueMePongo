@@ -1,4 +1,4 @@
-package main;
+package src.main;
 
 public enum Categoria {
 	PARTE_SUPERIOR, PARTE_INFERIOR, CALZADO, ACCESORIO;

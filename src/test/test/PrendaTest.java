@@ -1,16 +1,12 @@
-package test;
+package src.test.test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.awt.Color;
 
+import src.main.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import main.Material;
-import main.Prenda;
-import main.Tipo;
-import main.Trama;
 
 public class PrendaTest {
 	static Color azul;
@@ -19,7 +15,7 @@ public class PrendaTest {
 	static Tipo remera;
 	static Tipo zapatillas;
 	static Trama trama;
-	Prenda unaPrenda;
+	PrendaBorrador unBorrador;
 	
 	@BeforeAll
 	public static void init() {
@@ -34,32 +30,46 @@ public class PrendaTest {
 	
 	@Test
 	public void prendaSeCreaSinColorSecundarioTest() throws Exception{
-			unaPrenda = new Prenda(remera, algodon, negro, null, trama);
+		unBorrador = new PrendaBorrador(remera);
+		unBorrador.setColorPrimario(negro);
+		unBorrador.setMaterial(algodon);
+		unBorrador.setTrama(trama);
+		unBorrador.obtenerPrenda();
 	}
 	
 	@Test
 	public void prendaSeCreaConColorSecundarioTest() throws Exception{
-			unaPrenda = new Prenda(remera, algodon, negro, azul, trama);
+		unBorrador = new PrendaBorrador(remera);
+		unBorrador.setColorPrimario(negro);
+		unBorrador.setColorSecundario(azul);
+		unBorrador.setMaterial(algodon);
+		unBorrador.obtenerPrenda();
 	}
 	
 	@Test
 	public void prendaNoSeCreaSinColorPrimarioTest() {
+		unBorrador = new PrendaBorrador(remera);
+		unBorrador.setColorSecundario(azul);
+		unBorrador.setMaterial(algodon);
 		assertThrows(Exception.class, ()->{
-			unaPrenda = new Prenda(remera, algodon ,null, azul, trama);
+			unBorrador.obtenerPrenda();
 		});
 	}
 	
 	@Test
 	public void prendaNoSeCreaSinTipoTest() {
 		assertThrows(Exception.class, ()->{
-			unaPrenda = new Prenda(null, algodon ,negro, azul, trama);
+			unBorrador = new PrendaBorrador(null);
 		});
 	}
 	
 	@Test
 	public void prendaNoSeCreaSinMaterialTest() {
+		unBorrador = new PrendaBorrador(remera);
+		unBorrador.setColorPrimario(negro);
+		unBorrador.setColorSecundario(azul);
 		assertThrows(Exception.class, ()->{
-			unaPrenda = new Prenda(remera, null ,negro, azul, trama);
+			unBorrador.obtenerPrenda();
 		});
 	}
 	

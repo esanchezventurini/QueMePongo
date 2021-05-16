@@ -1,4 +1,4 @@
-package main;
+package src.main;
 
 public enum Tipo {
 	CHOMBA(Categoria.PARTE_SUPERIOR),
@@ -12,7 +12,9 @@ public enum Tipo {
 	ANTEOJOS(Categoria.ACCESORIO), 
 	CARTERA(Categoria.ACCESORIO);
 
+	private Categoria categoria;
+
 	Tipo(Categoria categoria) {
-		
+		this.categoria = categoria;
 	}
 }
