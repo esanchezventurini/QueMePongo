@@ -22,4 +22,11 @@ public class Prenda {
 		return this.trama;
 	}
 
+	public boolean esAdecuadoParaTemperatura(short temperatura){
+		return this.tipo.esAdecuadoParaTemperatura(temperatura);
+	}
+
+	public boolean esDeCategoria(Categoria categoria){
+		return this.tipo.esDeCategoria(categoria);
+	}
 }

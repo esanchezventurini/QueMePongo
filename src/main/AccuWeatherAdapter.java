@@ -4,9 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AccuWeatherAdapter {
+public class AccuWeatherAdapter implements IProveedorClima{
 
-    public CondicionClimatica obtenerCondicionClimatica(String ciudad){
+    public CondicionClimatica obtenerCondicionClimaticaBuenosAires(){
+        return this.obtenerCondicionClimatica("Buenos Aires, Argentina");
+    }
+
+    private CondicionClimatica obtenerCondicionClimatica(String ciudad){
         List<Map<String, Object>> informacionClima = this.getInformacionClima(ciudad);
         short temperatura = getTemperaturaEnCelcius(informacionClima);
         short probabilidadPrecipitaciones = getProbabilidadPrecipitacion(informacionClima);
