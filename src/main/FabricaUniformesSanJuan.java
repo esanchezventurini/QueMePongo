@@ -1,6 +1,9 @@
 package src.main;
 
 import java.awt.Color;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class FabricaUniformesSanJuan extends FabricaDeUniformes{
 
