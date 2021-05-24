@@ -10,6 +10,9 @@ public class PropuestaQuitar extends Propuesta{
 
     @Override
     public void aplicarseSobrePrendas(List<Prenda> prendas) {
+        if(!prendas.contains(prenda)){
+            throw new RuntimeException("La prenda que se desea quitar no existe");
+        }
         prendas.remove(prenda);
     }
 
