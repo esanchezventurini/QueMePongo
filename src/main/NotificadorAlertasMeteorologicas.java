@@ -3,16 +3,16 @@ package src.main;
 import java.util.List;
 
 public class NotificadorAlertasMeteorologicas {
-  AccuWeatherAdapter accuWeatherAdapter;
+  IProveedorClima proveedorClima;
   List<ObserverAlertas> observers;
 
-  public NotificadorAlertasMeteorologicas(AccuWeatherAdapter accuWeatherAdapter, List<ObserverAlertas> observers){
-    this.accuWeatherAdapter = accuWeatherAdapter;
+  public NotificadorAlertasMeteorologicas(IProveedorClima proveedorClima, List<ObserverAlertas> observers){
+    this.proveedorClima = proveedorClima;
     this.observers = observers;
   }
 
   public void notificar(){
-    List<String> alertas = accuWeatherAdapter.obtenerAlertasMeteorologicasBuenosAires();
+    List<String> alertas = proveedorClima.obtenerAlertasMeteorologicasBuenosAires();
     observers.forEach(observerAlertas -> observerAlertas.notificarObservadores(alertas));
   }
 
