@@ -27,13 +27,5 @@ public final class AccuWeatherAPI {
       put("CurrentAlerts", new ArrayList<>(Arrays.asList("STORM", "HAIL")));
     }});
   }
-
-  public static void main(String[] args) {
-    AccuWeatherAPI apiClima = new AccuWeatherAPI();
-    Map<String, Object> alertas = apiClima.getAlertas("Buenos Aires");
-    System.out.println((List<String>)alertas.get("CurrentAlerts"));
-  }
-
-
 }
 
