@@ -3,8 +3,9 @@ package src.main;
 import java.util.List;
 
 public abstract class Propuesta {
-    Prenda prenda;
+  Prenda prenda;
 
-    public abstract void aplicarseSobrePrendas(List<Prenda> prendas);
-    public abstract Propuesta propuestaInversa();
+  public abstract void aplicarseSobrePrendas(List<Prenda> prendas);
+
+  public abstract Propuesta propuestaInversa();
 }

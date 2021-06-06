@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import src.main.*;
 
+
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,7 +43,7 @@ public class GeneradorSugerenciasTest {
         calzado = new Prenda(zapatos, algodon ,azul, null, lunares );
         accesorio = new Prenda(anteojos, algodon ,azul, null, lunares );
 
-        accuWeatherAdapter = new AccuWeatherAdapter();
+        accuWeatherAdapter = new AccuWeatherAdapter(new AccuWeatherAPI());
 
         generadorSugerencias = new GeneradorSugerencias(accuWeatherAdapter);
     }
