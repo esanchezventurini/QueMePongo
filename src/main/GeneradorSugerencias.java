@@ -12,7 +12,7 @@ public class GeneradorSugerencias {
     this.proveedorClima = proveedorClima;
   }
 
-  public void generarSugerenciasDiarias(List<Usuario> usuarios){
+  public void generarSugerencias(List<Usuario> usuarios){
     usuarios.forEach(this::generarSugerenciaDiaria);
   }
 
