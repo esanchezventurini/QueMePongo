@@ -44,6 +44,7 @@ class Usuario {
 interface IProveedorClima {
   public CondicionClimatica obtenerCondicionClimaticaBuenosAires();
   public List<String> obtenerAlertasMeteorologicasBuenosAires();
+  public void actualizarAlertasMeteorologicasBuenosAires();
 }
 
 class Atuendo {
