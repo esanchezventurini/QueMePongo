@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class Usuario {
+  long id;
+
   List<Guardarropas> guardarropas;
   List<Prenda> prendasTotales;
   Atuendo sugerenciaDiaria;
@@ -45,4 +47,15 @@ public class Usuario {
     }
   }
 
+  public boolean tieneId(int id) {
+    return this.id == id;
+  }
+
+  public Prenda getPrendaById(int prendaId) {
+    return prendasTotales.stream().filter(x -> x.tieneId(prendaId)).findFirst().orElse(null);
+  }
+
+  public void removerPrenda(int prendaId) {
+    this.prendasTotales.removeIf(x -> x.tieneId(prendaId));
+  }
 }

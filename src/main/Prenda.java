@@ -5,6 +5,8 @@ import java.awt.Color;
 import org.apache.commons.lang3.Validate;
 
 public class Prenda {
+  long id;
+
   private Tipo tipo;
   private Color colorPrimario;
   private Color colorSecundario;
@@ -29,5 +31,9 @@ public class Prenda {
 
   public boolean esDeCategoria(Categoria categoria) {
     return this.tipo.esDeCategoria(categoria);
+  }
+
+  public boolean tieneId(int id) {
+    return this.id == id;
   }
 }

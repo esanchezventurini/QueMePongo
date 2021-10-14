@@ -1,0 +1,71 @@
+@startuml
+abstract class ObserverAlertas {
+  List<Usuario> observadores;
+  public void suscribirObservador(Usuario usuario)
+  public void desuscribirObservador(Usuario usuario)
+  public abstract void notificarObservadores(List<String> alertas)
+}
+
+
+class TormentaObserver extends ObserverAlertas{
+  public void notificarObservadores(List<String> alertas)
+}
+
+
+class GranizoObserver extends ObserverAlertas{
+  public void notificarObservadores(List<String> alertas)
+}
+
+class AlertasMeteorologicasObserver extends ObserverAlertas {
+  public void notificarObservadores(List<String> alertas)
+}
+
+class NotificadorAlertasMeteorologicas {
+  IProveedorClima proveedorClima;
+  List<ObserverAlertas> observers;
+  public void notificar()
+}
+
+
+class Usuario {
+  List<Guardarropas> guardarropas;
+  List<Prenda> prendasTotales;
+  Atuendo sugerenciaDiaria;
+  MailSender mailSender;
+  NotificationService notificationService;
+  String email;
+
+  public void setSugerenciaDiaria(Atuendo sugerencia)
+  public void notificarTormenta()
+  public void notificarGranizo()
+  public void notificarAlertaMeteorologica(List<String> alertas)
+}
+
+interface IProveedorClima {
+  public CondicionClimatica obtenerCondicionClimaticaBuenosAires();
+  public List<String> obtenerAlertasMeteorologicasBuenosAires();
+  public void actualizarAlertasMeteorologicasBuenosAires();
+}
+
+class Atuendo {
+  Prenda prendaSuperior;
+  Prenda prendaInferior;
+  Prenda calzado;
+  Prenda accesorio;
+}
+
+class MailSender {
+  public void send(String adress, String messaje)
+}
+
+class NotificationService {
+  public void notify(String text)
+}
+
+Usuario-->MailSender
+Usuario-->NotificationService
+Usuario-->Atuendo
+NotificadorAlertasMeteorologicas-->IProveedorClima
+NotificadorAlertasMeteorologicas-->"*"ObserverAlertas
+ObserverAlertas-->"*"Usuario
+@enduml
